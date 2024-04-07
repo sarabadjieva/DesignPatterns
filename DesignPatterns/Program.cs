@@ -4,8 +4,11 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        //SOLID
         SingleResponsibility.Demo();
         OpenClosed.Demo();
         Liskov.Demo();
+        //InterfaceSegregation.Demo();
+        DependencyInversion.Demo();
     }
 }

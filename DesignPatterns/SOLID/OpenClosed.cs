@@ -3,7 +3,7 @@
     /// <summary>
     /// Classes should be open for extension (extend the functionality)
     /// But should be closed to modifications (shouldn't have to go back and start adding things)
-    /// Do not change the main shipped module, add new classes
+    /// Do not change the main shipped/tested module, but add new classes
     /// </summary>
     internal class OpenClosed
     {

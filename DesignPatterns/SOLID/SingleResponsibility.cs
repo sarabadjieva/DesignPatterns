@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// A single class is responsible for one thing
+    /// Class should only have one reason to change
     /// </summary>
     internal class SingleResponsibility
     {
@@ -35,7 +36,10 @@
             public static void SaveToFile(Journal j, string fiName, bool overwrite = false)
             {
                 if (overwrite || !File.Exists(fiName))
+                {
                     File.WriteAllText(fiName, j.ToString());
+                    Console.WriteLine($"Created file {fiName}");
+                }
             }
         }
 
