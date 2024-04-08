@@ -11,14 +11,9 @@
             Parent, Child, Sibling
         }
 
-        private class Person
+        private class Person(string name)
         {
-            public string Name { get; set; }
-
-            public Person(string name)
-            {
-                Name = name;
-            }
+            public string Name { get; set; } = name;
         }
 
         private interface IRelationshipBrowser
@@ -32,7 +27,7 @@
             //As it is bad idea to change the type of Relations if it is exposed
             //we make it private and create the browser here
             //public List<(Person, Relationship, Person)> Relations => relations;
-            private List<(Person, Relationship, Person)> relations = new();
+            private readonly List<(Person, Relationship, Person)> relations = [];
 
             public void AddParentAndChild(Person parent, Person child)
             {
@@ -80,8 +75,7 @@
             Relationships relationships = new();
             relationships.AddParentAndChild(parent, child1);
             relationships.AddParentAndChild(parent, child2);
-
-            Research research = new Research(relationships);
+            _ = new Research(relationships);
         }
     }
 }

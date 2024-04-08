@@ -1,0 +1,12 @@
+﻿Builder design pattern
+
+Some objects are simple and can be created in a single ctor call
+Other objects require a lot of ceremony to create
+Having an object with 10 ctor arguments is not productive (can lead to mistakes)
+Instead, opt for piecewise construction
+Builder provides an API for constructing an object step-by-step
+
+Builder: When a piecewise object construction is complicated, provide an API for doing it succinctly.
+
+Fluent Builder (see Builder.cs)
+- A builder that allows to chain several calls (ex: StringBuilder sb; sb.Append().Append()...)

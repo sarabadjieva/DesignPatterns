@@ -1,4 +1,5 @@
-﻿using DesignPatterns.SOLID;
+﻿using DesignPatterns.Builder;
+using DesignPatterns.SOLID;
 
 internal class Program
 {
@@ -10,5 +11,8 @@ internal class Program
         Liskov.Demo();
         //InterfaceSegregation.Demo();
         DependencyInversion.Demo();
+
+        //Builder
+        Builder.Demo();
     }
 }

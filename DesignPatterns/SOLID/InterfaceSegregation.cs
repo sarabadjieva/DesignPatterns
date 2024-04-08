@@ -69,16 +69,10 @@
 
         private interface IMultiFunctionDevice : IPrinter, IScanner { }
 
-        private class MultiFunctionMachine : IMultiFunctionDevice
+        private class MultiFunctionMachine(IPrinter printer, IScanner scanner) : IMultiFunctionDevice
         {
-            private IPrinter printer;
-            private IScanner scanner;
-
-            public MultiFunctionMachine(IPrinter printer, IScanner scanner)
-            {
-                this.printer = printer ?? throw new ArgumentNullException(paramName: (nameof(printer)));
-                this.scanner = scanner ?? throw new ArgumentNullException(paramName: (nameof(scanner)));
-            }
+            private readonly IPrinter printer = printer ?? throw new ArgumentNullException(paramName: (nameof(printer)));
+            private readonly IScanner scanner = scanner ?? throw new ArgumentNullException(paramName: (nameof(scanner)));
 
             public void Print(Document d)
             {

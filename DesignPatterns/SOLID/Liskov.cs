@@ -46,14 +46,13 @@
 
         public static void Demo()
         {
-            Rectangle r = new Rectangle(2, 3);
+            Rectangle r = new(2, 3);
             Console.WriteLine($"{r} has Area {Area(r)}");
 
             //If we have left the rectangle's properties non-virtual
             //And declare the square's as new
             //this would have changed only the width
-            Rectangle s = new Square();
-            s.Width = 4;
+            Rectangle s = new() { Width = 4 };
             Console.WriteLine($"{s} has Area {Area(s)}");
         }
     }
