@@ -4,25 +4,22 @@
     /// High-level modules should not depend on low-level modules
     /// Use abstractions where possible
     /// </summary>
-    internal class DependencyInversion
+    internal class DependencyInversion : IPatternDemo
     {
-        private enum Relationship
-        {
-            Parent, Child, Sibling
-        }
+        enum Relationship { Parent, Child, Sibling }
 
-        private class Person(string name)
+        class Person(string name)
         {
             public string Name { get; set; } = name;
         }
 
-        private interface IRelationshipBrowser
+        interface IRelationshipBrowser
         {
             IEnumerable<Person> FindAllChildrenOf(string name);
         }
 
         //low-level API
-        private class Relationships : IRelationshipBrowser
+        class Relationships : IRelationshipBrowser
         {
             //As it is bad idea to change the type of Relations if it is exposed
             //we make it private and create the browser here
@@ -45,7 +42,7 @@
         }
 
         //high-level module
-        private class Research
+        class Research
         {
             //public Research(Relationships relationships)
             //{
@@ -66,7 +63,7 @@
             }
         }
 
-        public static void Demo()
+        public void Demo()
         {
             Person parent = new("John");
             Person child1 = new("Chris");

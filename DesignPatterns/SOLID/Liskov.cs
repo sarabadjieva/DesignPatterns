@@ -4,9 +4,9 @@
     /// Derived classes must be substitutable for their base classes
     /// Ex. Using virtual variables
     /// </summary>
-    internal class Liskov
+    internal class Liskov : IPatternDemo
     {
-        private class Rectangle
+        class Rectangle
         {
             //public int Width { get; set; }
             //public int Height { get; set; }
@@ -27,7 +27,7 @@
             }
         }
 
-        private class Square : Rectangle
+        class Square : Rectangle
         {
             //public new int Width
             public override int Width
@@ -42,9 +42,9 @@
             }
         }
 
-        private static int Area(Rectangle r) => r.Width * r.Height;
+        static int Area(Rectangle r) => r.Width * r.Height;
 
-        public static void Demo()
+        public void Demo()
         {
             Rectangle r = new(2, 3);
             Console.WriteLine($"{r} has Area {Area(r)}");

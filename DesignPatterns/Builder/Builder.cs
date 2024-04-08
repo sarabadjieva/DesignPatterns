@@ -2,9 +2,9 @@
 
 namespace DesignPatterns.Builder
 {
-    internal class Builder
+    internal class Builder : IPatternDemo
     {
-        private class HtmlElement
+        class HtmlElement
         {
             private const int indentSize = 2;
 
@@ -47,7 +47,7 @@ namespace DesignPatterns.Builder
             }
         }
 
-        private class HtmlBuilder
+        class HtmlBuilder
         {
             private readonly string rootName;
             private HtmlElement root = new();
@@ -76,7 +76,7 @@ namespace DesignPatterns.Builder
             }
         }
 
-        public static void Demo()
+        public void Demo()
         {
             // if you want to build a simple HTML paragraph using StringBuilder
             var hello = "hello";

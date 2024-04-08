@@ -7,16 +7,16 @@
     /// </summary>
     internal class InterfaceSegregation
     {
-        private class Document { }
+        class Document { }
 
-        private interface IMachine
+        interface IMachine
         {
             void Print(Document d);
             void Scan(Document d);
             void Fax(Document d);
         }
 
-        private class MultiFunctionalPrinter : IMachine
+        class MultiFunctionalPrinter : IMachine
         {
             public void Fax(Document d)
             {
@@ -34,7 +34,7 @@
             }
         }
 
-        private class OldFashionedPrinter : IMachine
+        class OldFashionedPrinter : IMachine
         {
             public void Fax(Document d) => throw new NotImplementedException();
             public void Scan(Document d) => throw new NotImplementedException();
@@ -44,17 +44,17 @@
             }
         }
 
-        private interface IPrinter
+        interface IPrinter
         {
             void Print(Document d);
         }
 
-        private interface IScanner
+        interface IScanner
         {
             void Scan(Document d);
         }
 
-        private class Photocopier : IPrinter, IScanner
+        class Photocopier : IPrinter, IScanner
         {
             public void Print(Document d)
             {
@@ -67,9 +67,9 @@
             }
         }
 
-        private interface IMultiFunctionDevice : IPrinter, IScanner { }
+        interface IMultiFunctionDevice : IPrinter, IScanner { }
 
-        private class MultiFunctionMachine(IPrinter printer, IScanner scanner) : IMultiFunctionDevice
+        class MultiFunctionMachine(IPrinter printer, IScanner scanner) : IMultiFunctionDevice
         {
             private readonly IPrinter printer = printer ?? throw new ArgumentNullException(paramName: (nameof(printer)));
             private readonly IScanner scanner = scanner ?? throw new ArgumentNullException(paramName: (nameof(scanner)));

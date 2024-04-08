@@ -1,18 +1,24 @@
-﻿using DesignPatterns.Builder;
-using DesignPatterns.SOLID;
+﻿using DesignPatterns;
+using DesignPatterns.Builder;
+using System.Reflection;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        //SOLID
-        SingleResponsibility.Demo();
-        OpenClosed.Demo();
-        Liskov.Demo();
-        //InterfaceSegregation.Demo();
-        DependencyInversion.Demo();
+        var assembly = Assembly.GetExecutingAssembly();
+        var types = assembly.GetTypes();
 
-        //Builder
-        Builder.Demo();
+        var patternDemos = types.Where(t => typeof(IPatternDemo).IsAssignableFrom(t) && !t.IsInterface);
+
+        foreach (var type in patternDemos)
+        {
+            Console.WriteLine($"-----{type.Name}-----");
+            var instance = Activator.CreateInstance(type) as IPatternDemo;
+            instance?.Demo();
+            Console.WriteLine(Environment.NewLine);
+        }
+
+        //Without demos: InterfaceSegregation
     }
 }

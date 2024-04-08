@@ -4,9 +4,9 @@
     /// A single class is responsible for one thing
     /// Class should only have one reason to change
     /// </summary>
-    internal class SingleResponsibility
+    internal class SingleResponsibility : IPatternDemo
     {
-        private class Journal
+        class Journal
         {
             private static int count = 0;
             private readonly List<string> entries = new();
@@ -31,7 +31,7 @@
             //This class should be responsible for one thing
         }
 
-        private static class Persistence
+        static class Persistence
         {
             public static void SaveToFile(Journal j, string fiName, bool overwrite = false)
             {
@@ -43,7 +43,7 @@
             }
         }
 
-        public static void Demo()
+        public void Demo()
         {
             Journal journal = new Journal();
             journal.AddEntry("This is my first line");

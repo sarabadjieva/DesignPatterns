@@ -5,19 +5,12 @@
     /// But should be closed to modifications (shouldn't have to go back and start adding things)
     /// Do not change the main shipped/tested module, but add new classes
     /// </summary>
-    internal class OpenClosed
+    internal class OpenClosed : IPatternDemo
     {
-        private enum Color
-        {
-            Red, Green, Blue
-        }
+        enum Color { Red, Green, Blue }
+        enum Size { Small, Medium, Large, Huge }
 
-        private enum Size
-        {
-            Small, Medium, Large, Huge
-        }
-
-        private class Product
+        class Product
         {
             public string Name { get; set; }
             public Color Color { get; set; }
@@ -34,7 +27,7 @@
             }
         }
 
-        private static class ProductFilter
+        static class ProductFilter
         {
             public static IEnumerable<Product> FilterBySize(IEnumerable<Product> products, Size size)
             {
@@ -54,17 +47,17 @@
             //Instead of brute force, we could implement a pattern (specification pattern)
         }
 
-        private interface ISpecification<T>
+        interface ISpecification<T>
         {
             bool IsSatisfied(T t);
         }
 
-        private interface IFilter<T>
+        interface IFilter<T>
         {
             IEnumerable<T> Filter(IEnumerable<T> items, ISpecification<T> spec);
         }
 
-        private class ColorSpecification : ISpecification<Product>
+        class ColorSpecification : ISpecification<Product>
         {
             private Color color;
 
@@ -79,7 +72,7 @@
             }
         }
 
-        private class SizeSpecification : ISpecification<Product>
+        class SizeSpecification : ISpecification<Product>
         {
             private Size size;
 
@@ -94,7 +87,7 @@
             }
         }
 
-        private class AndSpecification<T> : ISpecification<T>
+        class AndSpecification<T> : ISpecification<T>
         {
             private ISpecification<T> first;
             private ISpecification<T> second;
@@ -111,7 +104,7 @@
             }
         }
 
-        private class BetterFilter : IFilter<Product>
+        class BetterFilter : IFilter<Product>
         {
             public IEnumerable<Product> Filter(IEnumerable<Product> items, ISpecification<Product> spec)
             {
@@ -121,7 +114,7 @@
             }
         }
 
-        public static void Demo()
+        public void Demo()
         {
             Product[] products = {
                 new Product("Apple", Color.Green, Size.Small),
