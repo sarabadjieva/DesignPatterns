@@ -6,7 +6,7 @@
     /// </summary>
     internal class SingleResponsibility : IPatternDemo
     {
-        class Journal
+        private class Journal
         {
             private static int count = 0;
             private readonly List<string> entries = new();
@@ -31,7 +31,7 @@
             //This class should be responsible for one thing
         }
 
-        static class Persistence
+        private static class Persistence
         {
             public static void SaveToFile(Journal j, string fiName, bool overwrite = false)
             {

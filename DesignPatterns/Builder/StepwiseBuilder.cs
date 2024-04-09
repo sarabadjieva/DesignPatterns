@@ -7,9 +7,9 @@
     /// </summary>
     internal class StepwiseBuilder : IPatternDemo
     {
-        enum CarType { Sedan, Crossover }
+        private enum CarType { Sedan, Crossover }
 
-        class Car
+        private class Car
         {
             public CarType Type { get; set; }
             public int WheelSize { get; set; }
@@ -20,22 +20,22 @@
             }
         }
 
-        interface ISpecifyCarType
+        private interface ISpecifyCarType
         {
             public ISpecifyWheelSize OfType(CarType type);
         }
 
-        interface ISpecifyWheelSize
+        private interface ISpecifyWheelSize
         {
             public IBuildCar WithWheels(int size);
         }
 
-        interface IBuildCar
+        private interface IBuildCar
         {
             public Car Build();
         }
 
-        class CarBuilder
+        private class CarBuilder
         {
             private class Impl :
                 ISpecifyCarType,

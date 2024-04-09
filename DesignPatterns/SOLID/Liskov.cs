@@ -6,7 +6,7 @@
     /// </summary>
     internal class Liskov : IPatternDemo
     {
-        class Rectangle
+        private class Rectangle
         {
             //public int Width { get; set; }
             //public int Height { get; set; }
@@ -27,7 +27,7 @@
             }
         }
 
-        class Square : Rectangle
+        private class Square : Rectangle
         {
             //public new int Width
             public override int Width
@@ -42,7 +42,7 @@
             }
         }
 
-        static int Area(Rectangle r) => r.Width * r.Height;
+        private static int Area(Rectangle r) => r.Width * r.Height;
 
         public void Demo()
         {

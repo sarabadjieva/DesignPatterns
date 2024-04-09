@@ -6,7 +6,7 @@
     /// </summary>
     internal class FluentBuilderInheritanceWithRecursiveGenerics : IPatternDemo
     {
-        class Person
+        private class Person
         {
             public string Name { get; set; }
             public string Position { get; set; }
@@ -21,14 +21,14 @@
             }
         }
 
-        abstract class PersonBuilder
+        private abstract class PersonBuilder
         {
             protected Person person = new();
 
             public Person Build() => person;
         }
 
-        class PersonInfoBuilder<T>
+        private class PersonInfoBuilder<T>
             : PersonBuilder
             where T : PersonInfoBuilder<T>
         {
@@ -43,7 +43,7 @@
         }
 
         //Because of Open-Closed principle, we decide to create a new class and expand it
-        class PersonJobBuilder<T>
+        private class PersonJobBuilder<T>
             : PersonInfoBuilder<PersonJobBuilder<T>>
             where T : PersonJobBuilder<T>
         {

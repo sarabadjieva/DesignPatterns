@@ -7,10 +7,10 @@
     /// </summary>
     internal class OpenClosed : IPatternDemo
     {
-        enum Color { Red, Green, Blue }
-        enum Size { Small, Medium, Large, Huge }
+        private enum Color { Red, Green, Blue }
+        private enum Size { Small, Medium, Large, Huge }
 
-        class Product
+        private class Product
         {
             public string Name { get; set; }
             public Color Color { get; set; }
@@ -27,7 +27,7 @@
             }
         }
 
-        static class ProductFilter
+        private static class ProductFilter
         {
             public static IEnumerable<Product> FilterBySize(IEnumerable<Product> products, Size size)
             {
@@ -47,17 +47,17 @@
             //Instead of brute force, we could implement a pattern (specification pattern)
         }
 
-        interface ISpecification<T>
+        private interface ISpecification<T>
         {
             bool IsSatisfied(T t);
         }
 
-        interface IFilter<T>
+        private interface IFilter<T>
         {
             IEnumerable<T> Filter(IEnumerable<T> items, ISpecification<T> spec);
         }
 
-        class ColorSpecification : ISpecification<Product>
+        private class ColorSpecification : ISpecification<Product>
         {
             private Color color;
 
@@ -72,7 +72,7 @@
             }
         }
 
-        class SizeSpecification : ISpecification<Product>
+        private class SizeSpecification : ISpecification<Product>
         {
             private Size size;
 
@@ -87,7 +87,7 @@
             }
         }
 
-        class AndSpecification<T> : ISpecification<T>
+        private class AndSpecification<T> : ISpecification<T>
         {
             private ISpecification<T> first;
             private ISpecification<T> second;
@@ -104,7 +104,7 @@
             }
         }
 
-        class BetterFilter : IFilter<Product>
+        private class BetterFilter : IFilter<Product>
         {
             public IEnumerable<Product> Filter(IEnumerable<Product> items, ISpecification<Product> spec)
             {

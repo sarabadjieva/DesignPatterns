@@ -4,7 +4,7 @@ namespace DesignPatterns.Builder
 {
     internal class Builder : IPatternDemo
     {
-        class HtmlElement
+        private class HtmlElement
         {
             private const int indentSize = 2;
 
@@ -47,7 +47,7 @@ namespace DesignPatterns.Builder
             }
         }
 
-        class HtmlBuilder
+        private class HtmlBuilder
         {
             private readonly string rootName;
             private HtmlElement root = new();

@@ -6,20 +6,20 @@
     /// </summary>
     internal class DependencyInversion : IPatternDemo
     {
-        enum Relationship { Parent, Child, Sibling }
+        private enum Relationship { Parent, Child, Sibling }
 
-        class Person(string name)
+        private class Person(string name)
         {
             public string Name { get; set; } = name;
         }
 
-        interface IRelationshipBrowser
+        private interface IRelationshipBrowser
         {
             IEnumerable<Person> FindAllChildrenOf(string name);
         }
 
         //low-level API
-        class Relationships : IRelationshipBrowser
+        private class Relationships : IRelationshipBrowser
         {
             //As it is bad idea to change the type of Relations if it is exposed
             //we make it private and create the browser here
@@ -42,7 +42,7 @@
         }
 
         //high-level module
-        class Research
+        private class Research
         {
             //public Research(Relationships relationships)
             //{
