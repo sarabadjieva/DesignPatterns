@@ -10,14 +10,22 @@ internal class Program
 
         var patternDemos = types.Where(t => typeof(IPatternDemo).IsAssignableFrom(t) && !t.IsInterface);
 
-        foreach (var type in patternDemos)
+        foreach (var group in patternDemos.GroupBy(t => t.Namespace))
         {
-            Console.WriteLine($"-----{type.Name}-----");
-            var instance = Activator.CreateInstance(type) as IPatternDemo;
-            instance?.Demo();
-            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine($"-----NAMESPACE {group.Key}-----");
+
+            foreach (var type in group)
+            {
+                Console.WriteLine($"-----{type.Name}-----");
+                var instance = Activator.CreateInstance(type) as IPatternDemo;
+                instance?.Demo();
+                Console.Write(Environment.NewLine);
+            }
+
+            Console.Write(Environment.NewLine + Environment.NewLine);
         }
 
-        //Without demos: InterfaceSegregation
+        //Without demos: InterfaceSegregation,
+        //AsyncFactoryMethod (have to make some adjustments to reflection/interface)
     }
 }

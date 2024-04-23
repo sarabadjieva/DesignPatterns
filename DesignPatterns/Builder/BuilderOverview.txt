@@ -10,3 +10,10 @@ Builder: When a piecewise object construction is complicated, provide an API for
 
 Fluent Builder (see Builder.cs)
 - A builder that allows to chain several calls (ex: StringBuilder sb; sb.Append().Append()...)
+
+
+---Summary---
+A builder is a separate component for building an object
+Can either give builder a ctor or return it via a static function
+To make a builder fluent, return "this"
+Different facets of an object can be built with a different builders working in a tandem via a base class
