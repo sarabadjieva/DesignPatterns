@@ -10,7 +10,8 @@
 
         private class Point
         {
-            private double x, y;
+            private readonly double x;
+            private readonly double y;
 
             //NB private constructor -> mandatory to use factory method
             private Point(double x, double y)

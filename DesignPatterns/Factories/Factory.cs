@@ -24,9 +24,9 @@
 
         private class Point
         {
-            private double x, y;
+            private readonly double x;
+            private readonly double y;
 
-            //had to make it public; change later in course
             public Point(double x, double y)
             {
                 this.x = x;

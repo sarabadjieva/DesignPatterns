@@ -42,7 +42,7 @@
                 ISpecifyWheelSize,
                 IBuildCar
             {
-                private Car car = new();
+                private readonly Car car = new();
 
                 public ISpecifyWheelSize OfType(CarType type)
                 {

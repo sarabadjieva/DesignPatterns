@@ -9,7 +9,7 @@
         private class Journal
         {
             private static int count = 0;
-            private readonly List<string> entries = new();
+            private readonly List<string> entries = [];
         
             public int AddEntry(string text)
             {
@@ -45,7 +45,7 @@
 
         public void Demo()
         {
-            Journal journal = new Journal();
+            Journal journal = new();
             journal.AddEntry("This is my first line");
             journal.AddEntry("This is my second line");
             Console.WriteLine(journal);
