@@ -6,6 +6,7 @@ I have also added some notes, but these files alone could <b>not</b> teach Desig
 
 [SOLID](https://github.com/sarabadjieva/DesignPatterns/tree/master/DesignPatterns/SOLID)<br>
 [Builder](https://github.com/sarabadjieva/DesignPatterns/tree/master/DesignPatterns/Builder)<br>
+[Factories](https://github.com/sarabadjieva/DesignPatterns/tree/master/DesignPatterns/Factories)<br>
 
 WIP:
-[Factories](url), [Prototype](url), [Singleton](url), [Adapter](url), [Bridge](url), [Composite](url), [Decorator](url), [Facade](url)...
+[Prototype](url), [Singleton](url), [Adapter](url), [Bridge](url), [Composite](url), [Decorator](url), [Facade](url)...
