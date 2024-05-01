@@ -68,11 +68,4 @@
             Console.WriteLine(person);
         }
     }
-
-    static class PersonBuilderExtensions
-    {
-        public static FunctionalBuilder.PersonBuilder? WorksAs
-            (this FunctionalBuilder.PersonBuilder builder, string position)
-            => builder.Do(p => p.Position = position);
-    }
 }
