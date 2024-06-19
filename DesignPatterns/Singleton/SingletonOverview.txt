@@ -1,0 +1,11 @@
+Motivation
+- For some components it only makes sense to have one in the system
+	-ex: Database repository, Object factory
+- Where the construction call is expensive
+	- We only do it once
+	- We provide everyone with the same instance
+- Want to prevent anyone creating additional copies
+- Need to take care of lazy instantiation and thread safety
+
+
+---Summary---
