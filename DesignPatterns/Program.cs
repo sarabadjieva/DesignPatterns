@@ -25,7 +25,7 @@ internal class Program
             Console.Write(Environment.NewLine + Environment.NewLine);
         }
 
-        //Without demos: InterfaceSegregation,
+        //Without demos: InterfaceSegregation, SingletonImplementation + DI (most is in tests)
         //AsyncFactoryMethod (have to make some adjustments to reflection/interface)
     }
 }
